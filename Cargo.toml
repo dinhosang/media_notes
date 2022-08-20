@@ -1,0 +1,15 @@
+[package]
+name = "media_notes"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[dev-dependencies]
+
+[dev-dependencies.cargo-husky]
+version = "1"
+default-features = false
+features = ["run-for-all", "prepush-hook", "run-cargo-check", "run-cargo-fmt", "run-cargo-clippy", "run-cargo-test"]

@@ -1,0 +1,25 @@
+on: [push]
+
+name: build
+
+jobs:
+  check:
+    name: ci-checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install 1.63.0
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: '1.63.0'
+            override: true
+            components: rustfmt, clippy
+      - name: Check code compiles without issue
+        run: cargo check --all
+      - name: Confirm project is properly formatted
+        run: cargo fmt --all -- --check -v
+      - name: Confirm linting is valid
+        run : cargo clippy --all -- -D warnings
+      - name: Run project tests
+        run: cargo test --all
+      
