@@ -7,6 +7,10 @@ edition = "2021"
 
 [dependencies]
 
+[dependencies.crossterm]
+version = "0.25.0"
+features = ["event-stream"] 
+
 [dev-dependencies]
 
 [dev-dependencies.cargo-husky]
